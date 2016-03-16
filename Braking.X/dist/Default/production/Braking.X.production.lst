@@ -1,0 +1,1720 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.36 build -262312587 
+                                                                                               Mon Mar 14 19:28:06 2016
+
+Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150325
+     1                           	processor	18F4685
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    16                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    21                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    22  0000                     _RXFCON0bits	set	3540
+    23  0000                     _RXB1CONbits	set	3920
+    24  0000                     _RXB1D0	set	3926
+    25  0000                     _RXB1D1	set	3927
+    26  0000                     _RXB1D2	set	3928
+    27  0000                     _RXB1D3	set	3929
+    28  0000                     _RXB1D4	set	3930
+    29  0000                     _RXB1D5	set	3931
+    30  0000                     _RXB1D6	set	3932
+    31  0000                     _RXB1D7	set	3933
+    32  0000                     _RXB1SIDH	set	3921
+    33  0000                     _RXB1SIDL	set	3922
+    34  0000                     _RXF0SIDH	set	3840
+    35  0000                     _RXF0SIDL	set	3841
+    36  0000                     _RXF0SIDLbits	set	3841
+    37  0000                     _RXM0SIDH	set	3864
+    38  0000                     _RXM0SIDL	set	3865
+    39  0000                     _TXB0CONbits	set	3904
+    40  0000                     _TXB0D0	set	3910
+    41  0000                     _TXB0D1	set	3911
+    42  0000                     _TXB0D2	set	3912
+    43  0000                     _TXB0D3	set	3913
+    44  0000                     _TXB0D4	set	3914
+    45  0000                     _TXB0D5	set	3915
+    46  0000                     _TXB0D6	set	3916
+    47  0000                     _TXB0D7	set	3917
+    48  0000                     _TXB0DLC	set	3909
+    49  0000                     _TXB0SIDH	set	3905
+    50  0000                     _TXB0SIDL	set	3906
+    51  0000                     _TXB0SIDLbits	set	3906
+    52  0000                     _RXB1DLC	set	3925
+    53  0000                     _ADCON0bits	set	4034
+    54  0000                     _ADCON1bits	set	4033
+    55  0000                     _ADCON2bits	set	4032
+    56  0000                     _ADRESH	set	4036
+    57  0000                     _ADRESL	set	4035
+    58  0000                     _BRGCON1bits	set	3952
+    59  0000                     _BRGCON2bits	set	3953
+    60  0000                     _BRGCON3bits	set	3954
+    61  0000                     _CANCONbits	set	3951
+    62  0000                     _CANSTATbits	set	3950
+    63  0000                     _CIOCONbits	set	3955
+    64  0000                     _ECANCONbits	set	3959
+    65  0000                     _INTCONbits	set	4082
+    66  0000                     _LATDbits	set	3980
+    67  0000                     _OSCCONbits	set	4051
+    68  0000                     _OSCTUNEbits	set	3995
+    69  0000                     _PIE3bits	set	4003
+    70  0000                     _PIR3bits	set	4004
+    71  0000                     _RCONbits	set	4048
+    72  0000                     _RXB0CONbits	set	3936
+    73  0000                     _RXB0D0	set	3942
+    74  0000                     _RXB0D1	set	3943
+    75  0000                     _RXB0D2	set	3944
+    76  0000                     _RXB0D3	set	3945
+    77  0000                     _RXB0D4	set	3946
+    78  0000                     _RXB0D5	set	3947
+    79  0000                     _RXB0D6	set	3948
+    80  0000                     _RXB0D7	set	3949
+    81  0000                     _RXB0SIDH	set	3937
+    82  0000                     _RXB0SIDL	set	3938
+    83  0000                     _TRISAbits	set	3986
+    84  0000                     _TRISBbits	set	3987
+    85  0000                     _TRISDbits	set	3989
+    86  0000                     _RXB0DLC	set	3941
+    87                           
+    88                           ; #config settings
+    89  0000                     
+    90                           	psect	cinit
+    91  000304                     __pcinit:
+    92                           	opt stack 0
+    93  000304                     start_initialization:
+    94                           	opt stack 0
+    95  000304                     __initialization:
+    96                           	opt stack 0
+    97                           
+    98                           ; Clear objects allocated to COMRAM (1 bytes)
+    99  000304  6A28               	clrf	__pbssCOMRAM& (0+255),c
+   100  000306                     end_of_initialization:
+   101                           	opt stack 0
+   102  000306                     __end_of__initialization:
+   103                           	opt stack 0
+   104  000306  9029               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   105  000308  9229               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   106  00030A  0100               	movlb	0
+   107  00030C  EF29  F001         	goto	_main	;jump to C main() function
+   108                           
+   109                           	psect	bssCOMRAM
+   110  000028                     __pbssCOMRAM:
+   111                           	opt stack 0
+   112  000028                     _FORW:
+   113                           	opt stack 0
+   114  000028                     	ds	1
+   115                           
+   116                           	psect	cstackCOMRAM
+   117  000001                     __pcstackCOMRAM:
+   118                           	opt stack 0
+   119  000001                     ecan_receive_rxb0@mess:
+   120                           	opt stack 0
+   121                           
+   122                           ; 2 bytes @ 0x0
+   123  000001                     	ds	2
+   124  000003                     ??_ecan_receive_rxb0:
+   125                           
+   126                           ; 1 bytes @ 0x2
+   127  000003                     	ds	2
+   128  000005                     ??_ISR:
+   129                           
+   130                           ; 1 bytes @ 0x4
+   131  000005                     	ds	14
+   132  000013                     ISR@newMessage:
+   133                           	opt stack 0
+   134                           
+   135                           ; 11 bytes @ 0x12
+   136  000013                     	ds	11
+   137  00001E                     ??_ecan_init:
+   138  00001E                     ?_readADC:
+   139                           	opt stack 0
+   140                           
+   141                           ; 2 bytes @ 0x1D
+   142  00001E                     	ds	2
+   143  000020                     readADC@digitalVal:
+   144                           	opt stack 0
+   145  000020                     ecan_init@sid0:
+   146                           	opt stack 0
+   147                           
+   148                           ; 2 bytes @ 0x1F
+   149  000020                     	ds	2
+   150  000022                     ecan_init@mask0:
+   151                           	opt stack 0
+   152                           
+   153                           ; 2 bytes @ 0x21
+   154  000022                     	ds	2
+   155  000024                     main@sensorZero:
+   156                           	opt stack 0
+   157                           
+   158                           ; 2 bytes @ 0x23
+   159  000024                     	ds	2
+   160  000026                     main@sensorOne:
+   161                           	opt stack 0
+   162                           
+   163                           ; 2 bytes @ 0x25
+   164  000026                     	ds	2
+   165                           
+   166 ;;
+   167 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   168 ;;
+   169 ;; *************** function _main *****************
+   170 ;; Defined at:
+   171 ;;		line 35 in file "main.c"
+   172 ;; Parameters:    Size  Location     Type
+   173 ;;		None
+   174 ;; Auto vars:     Size  Location     Type
+   175 ;;  sensorOne       2   37[COMRAM] int 
+   176 ;;  sensorZero      2   35[COMRAM] int 
+   177 ;; Return value:  Size  Location     Type
+   178 ;;                  1    wreg      void 
+   179 ;; Registers used:
+   180 ;;		wreg, status,2, status,0, cstack
+   181 ;; Tracked objects:
+   182 ;;		On entry : 0/0
+   183 ;;		On exit  : 0/0
+   184 ;;		Unchanged: 0/0
+   185 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   186 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   187 ;;      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   188 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   189 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   190 ;;Total ram usage:        4 bytes
+   191 ;; Hardware stack levels required when called:    3
+   192 ;; This function calls:
+   193 ;;		_ConfigureOscillator
+   194 ;;		_ecan_init
+   195 ;;		_initializePorts
+   196 ;;		_readADC
+   197 ;;		_selectAN0
+   198 ;;		_selectAN1
+   199 ;;		_setAnalogIn
+   200 ;; This function is called by:
+   201 ;;		Startup code after reset
+   202 ;; This function uses a non-reentrant model
+   203 ;;
+   204                           
+   205                           	psect	text0
+   206  000252                     __ptext0:
+   207                           	opt stack 0
+   208  000252                     _main:
+   209                           	opt stack 28
+   210                           
+   211                           ;main.c: 38: ConfigureOscillator();
+   212                           
+   213                           ;incstack = 0
+   214  000252  EC7B  F001         	call	_ConfigureOscillator	;wreg free
+   215                           
+   216                           ;main.c: 42: initializePorts();
+   217  000256  EC92  F001         	call	_initializePorts	;wreg free
+   218                           
+   219                           ;main.c: 44: ecan_init();
+   220  00025A  ECCA  F000         	call	_ecan_init	;wreg free
+   221                           
+   222                           ;main.c: 46: RCONbits.IPEN = 0;
+   223  00025E  9ED0               	bcf	4048,7,c	;volatile
+   224                           
+   225                           ;main.c: 47: INTCONbits.GIE = 1;
+   226  000260  8EF2               	bsf	intcon,7,c	;volatile
+   227                           
+   228                           ;main.c: 48: INTCONbits.PEIE = 1;
+   229  000262  8CF2               	bsf	intcon,6,c	;volatile
+   230                           
+   231                           ;main.c: 49: PIE3bits.RXB0IE = 1;
+   232  000264  80A3               	bsf	4003,0,c	;volatile
+   233                           
+   234                           ;main.c: 51: setAnalogIn();
+   235  000266  EC5D  F001         	call	_setAnalogIn	;wreg free
+   236  00026A                     l1055:
+   237                           
+   238                           ;main.c: 53: {
+   239                           ;main.c: 55: selectAN0();
+   240  00026A  EC8D  F001         	call	_selectAN0	;wreg free
+   241                           
+   242                           ;main.c: 56: int sensorZero = readADC();
+   243  00026E  EC6E  F001         	call	_readADC	;wreg free
+   244  000272  C01E  F024         	movff	?_readADC,main@sensorZero
+   245  000276  C01F  F025         	movff	?_readADC+1,main@sensorZero+1
+   246                           
+   247                           ;main.c: 57: selectAN1();
+   248  00027A  EC88  F001         	call	_selectAN1	;wreg free
+   249                           
+   250                           ;main.c: 58: int sensorOne = readADC();
+   251  00027E  EC6E  F001         	call	_readADC	;wreg free
+   252  000282  C01E  F026         	movff	?_readADC,main@sensorOne
+   253  000286  C01F  F027         	movff	?_readADC+1,main@sensorOne+1
+   254                           
+   255                           ;main.c: 59: if (FORW || sensorZero < 60 || sensorOne < 60) {
+   256  00028A  5028               	movf	_FORW,w,c
+   257  00028C  B4D8               	btfsc	status,2,c
+   258  00028E  BE25               	btfsc	main@sensorZero+1,7,c
+   259  000290  D00E               	goto	l36
+   260  000292  5025               	movf	main@sensorZero+1,w,c
+   261  000294  E104               	bnz	u230
+   262  000296  0E3C               	movlw	60
+   263  000298  5C24               	subwf	main@sensorZero,w,c
+   264  00029A  A0D8               	btfss	status,0,c
+   265  00029C  D008               	goto	l36
+   266  00029E                     u230:
+   267  00029E  BE27               	btfsc	main@sensorOne+1,7,c
+   268  0002A0  D006               	goto	l36
+   269  0002A2  5027               	movf	main@sensorOne+1,w,c
+   270  0002A4  E107               	bnz	l34
+   271  0002A6  0E3C               	movlw	60
+   272  0002A8  5C26               	subwf	main@sensorOne,w,c
+   273  0002AA  B0D8               	btfsc	status,0,c
+   274  0002AC  D003               	goto	l34
+   275  0002AE                     l36:
+   276                           
+   277                           ;main.c: 60: LATDbits.LATD0 = 0;
+   278  0002AE  908C               	bcf	3980,0,c	;volatile
+   279                           
+   280                           ;main.c: 61: LATDbits.LATD1 = 1;
+   281  0002B0  828C               	bsf	3980,1,c	;volatile
+   282                           
+   283                           ;main.c: 62: }
+   284  0002B2  D7DB               	goto	l1055
+   285  0002B4                     l34:
+   286                           
+   287                           ;main.c: 63: else {
+   288                           ;main.c: 64: LATDbits.LATD0 = 1;
+   289  0002B4  808C               	bsf	3980,0,c	;volatile
+   290                           
+   291                           ;main.c: 65: LATDbits.LATD1 = 0;
+   292  0002B6  928C               	bcf	3980,1,c	;volatile
+   293  0002B8  D7D8               	goto	l1055
+   294  0002BA                     __end_of_main:
+   295                           	opt stack 0
+   296                           intcon	equ	0xFF2
+   297                           status	equ	0xFD8
+   298                           
+   299 ;; *************** function _setAnalogIn *****************
+   300 ;; Defined at:
+   301 ;;		line 156 in file "user.c"
+   302 ;; Parameters:    Size  Location     Type
+   303 ;;		None
+   304 ;; Auto vars:     Size  Location     Type
+   305 ;;		None
+   306 ;; Return value:  Size  Location     Type
+   307 ;;                  1    wreg      void 
+   308 ;; Registers used:
+   309 ;;		None
+   310 ;; Tracked objects:
+   311 ;;		On entry : 0/0
+   312 ;;		On exit  : 0/0
+   313 ;;		Unchanged: 0/0
+   314 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   315 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   316 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   317 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   318 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   319 ;;Total ram usage:        0 bytes
+   320 ;; Hardware stack levels used:    1
+   321 ;; Hardware stack levels required when called:    2
+   322 ;; This function calls:
+   323 ;;		Nothing
+   324 ;; This function is called by:
+   325 ;;		_main
+   326 ;; This function uses a non-reentrant model
+   327 ;;
+   328                           
+   329                           	psect	text1
+   330  0002BA                     __ptext1:
+   331                           	opt stack 0
+   332  0002BA                     _setAnalogIn:
+   333                           	opt stack 28
+   334                           
+   335                           ;user.c: 159: ADCON1bits.PCFG0 = 1;
+   336                           
+   337                           ;incstack = 0
+   338  0002BA  80C1               	bsf	4033,0,c	;volatile
+   339                           
+   340                           ;user.c: 160: ADCON1bits.PCFG1 = 0;
+   341  0002BC  92C1               	bcf	4033,1,c	;volatile
+   342                           
+   343                           ;user.c: 161: ADCON1bits.PCFG2 = 1;
+   344  0002BE  84C1               	bsf	4033,2,c	;volatile
+   345                           
+   346                           ;user.c: 162: ADCON1bits.PCFG3 = 1;
+   347  0002C0  86C1               	bsf	4033,3,c	;volatile
+   348                           
+   349                           ;user.c: 163: ADCON2bits.ADFM = 1;
+   350  0002C2  8EC0               	bsf	4032,7,c	;volatile
+   351                           
+   352                           ;user.c: 167: ADCON1bits.VCFG0 = 0;
+   353  0002C4  98C1               	bcf	4033,4,c	;volatile
+   354                           
+   355                           ;user.c: 168: ADCON1bits.VCFG1 = 0;
+   356  0002C6  9AC1               	bcf	4033,5,c	;volatile
+   357                           
+   358                           ;user.c: 171: ADCON2bits.ACQT2 = 0;
+   359  0002C8  9AC0               	bcf	4032,5,c	;volatile
+   360                           
+   361                           ;user.c: 172: ADCON2bits.ACQT1 = 1;
+   362  0002CA  88C0               	bsf	4032,4,c	;volatile
+   363                           
+   364                           ;user.c: 173: ADCON2bits.ACQT0 = 0;
+   365  0002CC  96C0               	bcf	4032,3,c	;volatile
+   366                           
+   367                           ;user.c: 176: ADCON2bits.ADCS2 = 0;
+   368  0002CE  94C0               	bcf	4032,2,c	;volatile
+   369                           
+   370                           ;user.c: 177: ADCON2bits.ADCS1 = 1;
+   371  0002D0  82C0               	bsf	4032,1,c	;volatile
+   372                           
+   373                           ;user.c: 178: ADCON2bits.ADCS0 = 0;
+   374  0002D2  90C0               	bcf	4032,0,c	;volatile
+   375                           
+   376                           ;user.c: 182: TRISAbits.TRISA0 = 1;
+   377  0002D4  8092               	bsf	3986,0,c	;volatile
+   378                           
+   379                           ;user.c: 183: TRISAbits.TRISA1 = 1;
+   380  0002D6  8292               	bsf	3986,1,c	;volatile
+   381                           
+   382                           ;user.c: 196: ADCON0bits.ADON = 1;
+   383  0002D8  80C2               	bsf	4034,0,c	;volatile
+   384  0002DA  0012               	return		;funcret
+   385  0002DC                     __end_of_setAnalogIn:
+   386                           	opt stack 0
+   387                           intcon	equ	0xFF2
+   388                           status	equ	0xFD8
+   389                           
+   390 ;; *************** function _selectAN1 *****************
+   391 ;; Defined at:
+   392 ;;		line 101 in file "user.c"
+   393 ;; Parameters:    Size  Location     Type
+   394 ;;		None
+   395 ;; Auto vars:     Size  Location     Type
+   396 ;;		None
+   397 ;; Return value:  Size  Location     Type
+   398 ;;                  1    wreg      void 
+   399 ;; Registers used:
+   400 ;;		wreg, status,2
+   401 ;; Tracked objects:
+   402 ;;		On entry : 0/0
+   403 ;;		On exit  : 0/0
+   404 ;;		Unchanged: 0/0
+   405 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   406 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   407 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   408 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   409 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   410 ;;Total ram usage:        0 bytes
+   411 ;; Hardware stack levels used:    1
+   412 ;; Hardware stack levels required when called:    2
+   413 ;; This function calls:
+   414 ;;		Nothing
+   415 ;; This function is called by:
+   416 ;;		_main
+   417 ;; This function uses a non-reentrant model
+   418 ;;
+   419                           
+   420                           	psect	text2
+   421  000310                     __ptext2:
+   422                           	opt stack 0
+   423  000310                     _selectAN1:
+   424                           	opt stack 28
+   425                           
+   426                           ;user.c: 103: ADCON0bits.CHS = 0x01;
+   427                           
+   428                           ;incstack = 0
+   429  000310  50C2               	movf	4034,w,c	;volatile
+   430  000312  0BC3               	andlw	-61
+   431  000314  0904               	iorlw	4
+   432  000316  6EC2               	movwf	4034,c	;volatile
+   433  000318  0012               	return		;funcret
+   434  00031A                     __end_of_selectAN1:
+   435                           	opt stack 0
+   436                           intcon	equ	0xFF2
+   437                           status	equ	0xFD8
+   438                           
+   439 ;; *************** function _selectAN0 *****************
+   440 ;; Defined at:
+   441 ;;		line 95 in file "user.c"
+   442 ;; Parameters:    Size  Location     Type
+   443 ;;		None
+   444 ;; Auto vars:     Size  Location     Type
+   445 ;;		None
+   446 ;; Return value:  Size  Location     Type
+   447 ;;                  1    wreg      void 
+   448 ;; Registers used:
+   449 ;;		None
+   450 ;; Tracked objects:
+   451 ;;		On entry : 0/0
+   452 ;;		On exit  : 0/0
+   453 ;;		Unchanged: 0/0
+   454 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   455 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   456 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   457 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   458 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   459 ;;Total ram usage:        0 bytes
+   460 ;; Hardware stack levels used:    1
+   461 ;; Hardware stack levels required when called:    2
+   462 ;; This function calls:
+   463 ;;		Nothing
+   464 ;; This function is called by:
+   465 ;;		_main
+   466 ;; This function uses a non-reentrant model
+   467 ;;
+   468                           
+   469                           	psect	text3
+   470  00031A                     __ptext3:
+   471                           	opt stack 0
+   472  00031A                     _selectAN0:
+   473                           	opt stack 28
+   474                           
+   475                           ;user.c: 97: ADCON0bits.CHS = 0x00;
+   476                           
+   477                           ;incstack = 0
+   478  00031A  94C2               	bcf	4034,2,c	;volatile
+   479  00031C  96C2               	bcf	4034,3,c	;volatile
+   480  00031E  98C2               	bcf	4034,4,c	;volatile
+   481  000320  9AC2               	bcf	4034,5,c	;volatile
+   482  000322  0012               	return		;funcret
+   483  000324                     __end_of_selectAN0:
+   484                           	opt stack 0
+   485                           intcon	equ	0xFF2
+   486                           status	equ	0xFD8
+   487                           
+   488 ;; *************** function _readADC *****************
+   489 ;; Defined at:
+   490 ;;		line 142 in file "user.c"
+   491 ;; Parameters:    Size  Location     Type
+   492 ;;		None
+   493 ;; Auto vars:     Size  Location     Type
+   494 ;;  digitalVal      2   31[COMRAM] unsigned int 
+   495 ;; Return value:  Size  Location     Type
+   496 ;;                  2   29[COMRAM] unsigned int 
+   497 ;; Registers used:
+   498 ;;		wreg, status,2
+   499 ;; Tracked objects:
+   500 ;;		On entry : 0/0
+   501 ;;		On exit  : 0/0
+   502 ;;		Unchanged: 0/0
+   503 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   504 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   505 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   506 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   507 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   508 ;;Total ram usage:        4 bytes
+   509 ;; Hardware stack levels used:    1
+   510 ;; Hardware stack levels required when called:    2
+   511 ;; This function calls:
+   512 ;;		Nothing
+   513 ;; This function is called by:
+   514 ;;		_main
+   515 ;; This function uses a non-reentrant model
+   516 ;;
+   517                           
+   518                           	psect	text4
+   519  0002DC                     __ptext4:
+   520                           	opt stack 0
+   521  0002DC                     _readADC:
+   522                           	opt stack 28
+   523                           
+   524                           ;user.c: 144: unsigned int digitalVal;
+   525                           ;user.c: 146: ADCON0bits.GO_NOT_DONE = 1;
+   526                           
+   527                           ;incstack = 0
+   528  0002DC  82C2               	bsf	4034,1,c	;volatile
+   529  0002DE                     l97:
+   530  0002DE  B2C2               	btfsc	4034,1,c	;volatile
+   531  0002E0  D7FE               	goto	l97
+   532                           
+   533                           ;user.c: 152: digitalVal = ADRESL;
+   534  0002E2  CFC3 F020          	movff	4035,readADC@digitalVal	;volatile
+   535  0002E6  6A21               	clrf	readADC@digitalVal+1,c
+   536                           
+   537                           ;user.c: 153: digitalVal += ADRESH << 8;
+   538  0002E8  50C4               	movf	4036,w,c	;volatile
+   539  0002EA  2621               	addwf	readADC@digitalVal+1,f,c
+   540                           
+   541                           ;user.c: 154: return digitalVal;
+   542  0002EC  C020  F01E         	movff	readADC@digitalVal,?_readADC
+   543  0002F0  C021  F01F         	movff	readADC@digitalVal+1,?_readADC+1
+   544  0002F4  0012               	return	
+   545  0002F6                     __end_of_readADC:
+   546                           	opt stack 0
+   547                           intcon	equ	0xFF2
+   548                           status	equ	0xFD8
+   549                           
+   550 ;; *************** function _initializePorts *****************
+   551 ;; Defined at:
+   552 ;;		line 85 in file "user.c"
+   553 ;; Parameters:    Size  Location     Type
+   554 ;;		None
+   555 ;; Auto vars:     Size  Location     Type
+   556 ;;		None
+   557 ;; Return value:  Size  Location     Type
+   558 ;;                  1    wreg      void 
+   559 ;; Registers used:
+   560 ;;		None
+   561 ;; Tracked objects:
+   562 ;;		On entry : 0/0
+   563 ;;		On exit  : 0/0
+   564 ;;		Unchanged: 0/0
+   565 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   566 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   567 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   568 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   569 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   570 ;;Total ram usage:        0 bytes
+   571 ;; Hardware stack levels used:    1
+   572 ;; Hardware stack levels required when called:    2
+   573 ;; This function calls:
+   574 ;;		Nothing
+   575 ;; This function is called by:
+   576 ;;		_main
+   577 ;; This function uses a non-reentrant model
+   578 ;;
+   579                           
+   580                           	psect	text5
+   581  000324                     __ptext5:
+   582                           	opt stack 0
+   583  000324                     _initializePorts:
+   584                           	opt stack 28
+   585                           
+   586                           ;user.c: 86: TRISDbits.TRISD0 = 0;
+   587                           
+   588                           ;incstack = 0
+   589  000324  9095               	bcf	3989,0,c	;volatile
+   590                           
+   591                           ;user.c: 87: TRISDbits.TRISD1 = 0;
+   592  000326  9295               	bcf	3989,1,c	;volatile
+   593                           
+   594                           ;user.c: 90: TRISDbits.TRISD2 = 0;
+   595  000328  9495               	bcf	3989,2,c	;volatile
+   596  00032A  0012               	return		;funcret
+   597  00032C                     __end_of_initializePorts:
+   598                           	opt stack 0
+   599                           intcon	equ	0xFF2
+   600                           status	equ	0xFD8
+   601                           
+   602 ;; *************** function _ecan_init *****************
+   603 ;; Defined at:
+   604 ;;		line 11 in file "../../Desktop/CAPSTONE_PIC18.X-master/CAPSTONE_PIC18.X-master/can.c"
+   605 ;; Parameters:    Size  Location     Type
+   606 ;;		None
+   607 ;; Auto vars:     Size  Location     Type
+   608 ;;  mask0           2   33[COMRAM] short 
+   609 ;;  sid0            2   31[COMRAM] short 
+   610 ;; Return value:  Size  Location     Type
+   611 ;;                  1    wreg      void 
+   612 ;; Registers used:
+   613 ;;		wreg, status,2, status,0
+   614 ;; Tracked objects:
+   615 ;;		On entry : 0/0
+   616 ;;		On exit  : 0/0
+   617 ;;		Unchanged: 0/0
+   618 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   619 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   620 ;;      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   621 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   622 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   623 ;;Total ram usage:        6 bytes
+   624 ;; Hardware stack levels used:    1
+   625 ;; Hardware stack levels required when called:    2
+   626 ;; This function calls:
+   627 ;;		Nothing
+   628 ;; This function is called by:
+   629 ;;		_main
+   630 ;; This function uses a non-reentrant model
+   631 ;;
+   632                           
+   633                           	psect	text6
+   634  000194                     __ptext6:
+   635                           	opt stack 0
+   636  000194                     _ecan_init:
+   637                           	opt stack 28
+   638                           
+   639                           ;can.c: 14: TRISBbits.TRISB2 = 0;
+   640                           
+   641                           ;incstack = 0
+   642  000194  9493               	bcf	3987,2,c	;volatile
+   643                           
+   644                           ;can.c: 15: TRISBbits.TRISB3 = 1;
+   645  000196  8693               	bsf	3987,3,c	;volatile
+   646                           
+   647                           ;can.c: 18: CANCONbits.REQOP2 = 1;
+   648  000198  8E6F               	bsf	3951,7,c	;volatile
+   649  00019A                     l208:
+   650  00019A  AE6E               	btfss	3950,7,c	;volatile
+   651  00019C  AC6E               	btfss	3950,6,c	;volatile
+   652  00019E  D002               	goto	l212
+   653  0001A0  BA6E               	btfsc	3950,5,c	;volatile
+   654  0001A2  D7FB               	goto	l208
+   655  0001A4                     l212:
+   656                           
+   657                           ;can.c: 26: CIOCONbits.ENDRHI = 0;
+   658  0001A4  9A73               	bcf	3955,5,c	;volatile
+   659                           
+   660                           ;can.c: 29: BRGCON1bits.SJW1 = 0;
+   661  0001A6  9E70               	bcf	3952,7,c	;volatile
+   662                           
+   663                           ;can.c: 30: BRGCON1bits.SJW0 = 0;
+   664  0001A8  9C70               	bcf	3952,6,c	;volatile
+   665                           
+   666                           ;can.c: 31: BRGCON1bits.BRP5 = 0;
+   667  0001AA  9A70               	bcf	3952,5,c	;volatile
+   668                           
+   669                           ;can.c: 32: BRGCON1bits.BRP4 = 0;
+   670  0001AC  9870               	bcf	3952,4,c	;volatile
+   671                           
+   672                           ;can.c: 33: BRGCON1bits.BRP3 = 0;
+   673  0001AE  9670               	bcf	3952,3,c	;volatile
+   674                           
+   675                           ;can.c: 34: BRGCON1bits.BRP2 = 0;
+   676  0001B0  9470               	bcf	3952,2,c	;volatile
+   677                           
+   678                           ;can.c: 35: BRGCON1bits.BRP1 = 0;
+   679  0001B2  9270               	bcf	3952,1,c	;volatile
+   680                           
+   681                           ;can.c: 36: BRGCON1bits.BRP0 = 1;
+   682  0001B4  8070               	bsf	3952,0,c	;volatile
+   683                           
+   684                           ;can.c: 38: BRGCON2bits.SEG2PHTS = 1;
+   685  0001B6  8E71               	bsf	3953,7,c	;volatile
+   686                           
+   687                           ;can.c: 39: BRGCON2bits.SAM = 1;
+   688  0001B8  8C71               	bsf	3953,6,c	;volatile
+   689                           
+   690                           ;can.c: 40: BRGCON2bits.SEG1PH2 = 0;
+   691  0001BA  9A71               	bcf	3953,5,c	;volatile
+   692                           
+   693                           ;can.c: 41: BRGCON2bits.SEG1PH1 = 0;
+   694  0001BC  9871               	bcf	3953,4,c	;volatile
+   695                           
+   696                           ;can.c: 42: BRGCON2bits.SEG1PH0 = 1;
+   697  0001BE  8671               	bsf	3953,3,c	;volatile
+   698                           
+   699                           ;can.c: 43: BRGCON2bits.PRSEG2 = 0;
+   700  0001C0  9471               	bcf	3953,2,c	;volatile
+   701                           
+   702                           ;can.c: 44: BRGCON2bits.PRSEG1 = 1;
+   703  0001C2  8271               	bsf	3953,1,c	;volatile
+   704                           
+   705                           ;can.c: 45: BRGCON2bits.PRSEG0 = 0;
+   706  0001C4  9071               	bcf	3953,0,c	;volatile
+   707                           
+   708                           ;can.c: 49: BRGCON3bits.SEG2PH2 = 0;
+   709  0001C6  9472               	bcf	3954,2,c	;volatile
+   710                           
+   711                           ;can.c: 50: BRGCON3bits. SEG2PH1 = 0;
+   712  0001C8  9272               	bcf	3954,1,c	;volatile
+   713                           
+   714                           ;can.c: 51: BRGCON3bits. SEG2PH0 = 1;
+   715  0001CA  8072               	bsf	3954,0,c	;volatile
+   716                           
+   717                           ;can.c: 54: ECANCONbits.MDSEL1 = 0;
+   718  0001CC  9E77               	bcf	3959,7,c	;volatile
+   719                           
+   720                           ;can.c: 55: ECANCONbits.MDSEL0 = 0;
+   721  0001CE  9C77               	bcf	3959,6,c	;volatile
+   722                           
+   723                           ;can.c: 62: RXB0CONbits.RXM1 = 0;
+   724  0001D0  9C60               	bcf	3936,6,c	;volatile
+   725                           
+   726                           ;can.c: 63: RXB0CONbits.RXM0 = 1;
+   727  0001D2  8A60               	bsf	3936,5,c	;volatile
+   728                           
+   729                           ;can.c: 77: short sid0 = 0x00B;
+   730  0001D4  0E00               	movlw	0
+   731  0001D6  6E21               	movwf	ecan_init@sid0+1,c
+   732  0001D8  0E0B               	movlw	11
+   733  0001DA  6E20               	movwf	ecan_init@sid0,c
+   734                           
+   735                           ;can.c: 78: short mask0 = 0x7FF;
+   736  0001DC  0E07               	movlw	7
+   737  0001DE  6E23               	movwf	ecan_init@mask0+1,c
+   738  0001E0  6822               	setf	ecan_init@mask0,c
+   739                           
+   740                           ;can.c: 80: RXF0SIDH = sid0 >> 3;
+   741  0001E2  C020  F01E         	movff	ecan_init@sid0,??_ecan_init
+   742  0001E6  C021  F01F         	movff	ecan_init@sid0+1,??_ecan_init+1
+   743  0001EA  341F               	rlcf	??_ecan_init+1,w,c
+   744  0001EC  321F               	rrcf	??_ecan_init+1,f,c
+   745  0001EE  321E               	rrcf	??_ecan_init,f,c
+   746  0001F0  341F               	rlcf	??_ecan_init+1,w,c
+   747  0001F2  321F               	rrcf	??_ecan_init+1,f,c
+   748  0001F4  321E               	rrcf	??_ecan_init,f,c
+   749  0001F6  341F               	rlcf	??_ecan_init+1,w,c
+   750  0001F8  321F               	rrcf	??_ecan_init+1,f,c
+   751  0001FA  321E               	rrcf	??_ecan_init,f,c
+   752  0001FC  501E               	movf	??_ecan_init,w,c
+   753  0001FE  010F               	movlb	15	; () banked
+   754  000200  6F00               	movwf	0,b	;volatile
+   755                           
+   756                           ; BSR set to: 15
+   757                           ;can.c: 81: RXF0SIDL = sid0 << 5;
+   758  000202  3820               	swapf	ecan_init@sid0,w,c
+   759  000204  46E8               	rlncf	wreg,f,c
+   760  000206  0BE0               	andlw	224
+   761  000208  010F               	movlb	15	; () banked
+   762  00020A  6F01               	movwf	1,b	;volatile
+   763                           
+   764                           ; BSR set to: 15
+   765                           ;can.c: 82: RXM0SIDH = mask0 >> 3;
+   766  00020C  C022  F01E         	movff	ecan_init@mask0,??_ecan_init
+   767  000210  C023  F01F         	movff	ecan_init@mask0+1,??_ecan_init+1
+   768  000214  341F               	rlcf	??_ecan_init+1,w,c
+   769  000216  321F               	rrcf	??_ecan_init+1,f,c
+   770  000218  321E               	rrcf	??_ecan_init,f,c
+   771  00021A  341F               	rlcf	??_ecan_init+1,w,c
+   772  00021C  321F               	rrcf	??_ecan_init+1,f,c
+   773  00021E  321E               	rrcf	??_ecan_init,f,c
+   774  000220  341F               	rlcf	??_ecan_init+1,w,c
+   775  000222  321F               	rrcf	??_ecan_init+1,f,c
+   776  000224  321E               	rrcf	??_ecan_init,f,c
+   777  000226  501E               	movf	??_ecan_init,w,c
+   778  000228  010F               	movlb	15	; () banked
+   779  00022A  6F18               	movwf	24,b	;volatile
+   780                           
+   781                           ; BSR set to: 15
+   782                           ;can.c: 83: RXM0SIDL = mask0 << 5;
+   783  00022C  3822               	swapf	ecan_init@mask0,w,c
+   784  00022E  46E8               	rlncf	wreg,f,c
+   785  000230  0BE0               	andlw	224
+   786  000232  010F               	movlb	15	; () banked
+   787  000234  6F19               	movwf	25,b	;volatile
+   788                           
+   789                           ; BSR set to: 15
+   790                           ;can.c: 84: RXF0SIDLbits.EXIDEN = 0;
+   791  000236  010F               	movlb	15	; () banked
+   792  000238  9701               	bcf	1,3,b	;volatile
+   793                           
+   794                           ; BSR set to: 15
+   795                           ;can.c: 85: RXFCON0bits.RXF0EN = 1;
+   796  00023A  010D               	movlb	13	; () banked
+   797  00023C  81D4               	bsf	212,0,b	;volatile
+   798                           
+   799                           ; BSR set to: 13
+   800                           ;can.c: 100: CANCONbits.REQOP2 = 0;
+   801  00023E  9E6F               	bcf	3951,7,c	;volatile
+   802                           
+   803                           ; BSR set to: 13
+   804                           ;can.c: 101: CANCONbits.REQOP1 = 0;
+   805  000240  9C6F               	bcf	3951,6,c	;volatile
+   806                           
+   807                           ; BSR set to: 13
+   808                           ;can.c: 102: CANCONbits.REQOP0 = 0;
+   809  000242  9A6F               	bcf	3951,5,c	;volatile
+   810  000244                     l213:
+   811  000244  AE6E               	btfss	3950,7,c	;volatile
+   812  000246  0012               	return	
+   813  000248  AC6E               	btfss	3950,6,c	;volatile
+   814  00024A  0012               	return	
+   815  00024C  AA6E               	btfss	3950,5,c	;volatile
+   816  00024E  0012               	return	
+   817  000250  D7F9               	goto	l213
+   818  000252                     __end_of_ecan_init:
+   819                           	opt stack 0
+   820                           intcon	equ	0xFF2
+   821                           wreg	equ	0xFE8
+   822                           status	equ	0xFD8
+   823                           
+   824 ;; *************** function _ConfigureOscillator *****************
+   825 ;; Defined at:
+   826 ;;		line 24 in file "system.c"
+   827 ;; Parameters:    Size  Location     Type
+   828 ;;		None
+   829 ;; Auto vars:     Size  Location     Type
+   830 ;;		None
+   831 ;; Return value:  Size  Location     Type
+   832 ;;                  1    wreg      void 
+   833 ;; Registers used:
+   834 ;;		None
+   835 ;; Tracked objects:
+   836 ;;		On entry : 0/0
+   837 ;;		On exit  : 0/0
+   838 ;;		Unchanged: 0/0
+   839 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   840 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   841 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   842 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   843 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   844 ;;Total ram usage:        0 bytes
+   845 ;; Hardware stack levels used:    1
+   846 ;; Hardware stack levels required when called:    2
+   847 ;; This function calls:
+   848 ;;		Nothing
+   849 ;; This function is called by:
+   850 ;;		_main
+   851 ;; This function uses a non-reentrant model
+   852 ;;
+   853                           
+   854                           	psect	text7
+   855  0002F6                     __ptext7:
+   856                           	opt stack 0
+   857  0002F6                     _ConfigureOscillator:
+   858                           	opt stack 28
+   859                           
+   860                           ;system.c: 31: OSCCONbits.IRCF0 = 1;
+   861                           
+   862                           ;incstack = 0
+   863  0002F6  88D3               	bsf	4051,4,c	;volatile
+   864                           
+   865                           ;system.c: 32: OSCCONbits.IRCF1 = 1;
+   866  0002F8  8AD3               	bsf	4051,5,c	;volatile
+   867                           
+   868                           ;system.c: 33: OSCCONbits.IRCF2 = 1;
+   869  0002FA  8CD3               	bsf	4051,6,c	;volatile
+   870                           
+   871                           ;system.c: 34: OSCCONbits.SCS0 = 0;
+   872  0002FC  90D3               	bcf	4051,0,c	;volatile
+   873                           
+   874                           ;system.c: 35: OSCCONbits.SCS1 = 0;
+   875  0002FE  92D3               	bcf	4051,1,c	;volatile
+   876                           
+   877                           ;system.c: 36: OSCTUNEbits.PLLEN = 1;
+   878  000300  8C9B               	bsf	3995,6,c	;volatile
+   879  000302  0012               	return		;funcret
+   880  000304                     __end_of_ConfigureOscillator:
+   881                           	opt stack 0
+   882                           intcon	equ	0xFF2
+   883                           wreg	equ	0xFE8
+   884                           status	equ	0xFD8
+   885                           
+   886 ;; *************** function _ISR *****************
+   887 ;; Defined at:
+   888 ;;		line 70 in file "main.c"
+   889 ;; Parameters:    Size  Location     Type
+   890 ;;		None
+   891 ;; Auto vars:     Size  Location     Type
+   892 ;;  newMessage     11   18[COMRAM] struct Message
+   893 ;; Return value:  Size  Location     Type
+   894 ;;                  1    wreg      void 
+   895 ;; Registers used:
+   896 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   897 ;; Tracked objects:
+   898 ;;		On entry : 0/0
+   899 ;;		On exit  : 0/0
+   900 ;;		Unchanged: 0/0
+   901 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+   902 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   903 ;;      Locals:        11       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   904 ;;      Temps:         14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   905 ;;      Totals:        25       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+   906 ;;Total ram usage:       25 bytes
+   907 ;; Hardware stack levels used:    1
+   908 ;; Hardware stack levels required when called:    1
+   909 ;; This function calls:
+   910 ;;		_ecan_receive_rxb0
+   911 ;;		_ecan_rxb0_clear
+   912 ;; This function is called by:
+   913 ;;		Interrupt level 2
+   914 ;; This function uses a non-reentrant model
+   915 ;;
+   916                           
+   917                           	psect	intcode
+   918  000008                     __pintcode:
+   919                           	opt stack 0
+   920  000008                     _ISR:
+   921                           	opt stack 28
+   922                           
+   923                           ;incstack = 0
+   924  000008  8229               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+   925  00000A  CFFA F005          	movff	pclath,??_ISR
+   926  00000E  CFFB F006          	movff	pclatu,??_ISR+1
+   927  000012  CFE9 F007          	movff	fsr0l,??_ISR+2
+   928  000016  CFEA F008          	movff	fsr0h,??_ISR+3
+   929  00001A  CFE1 F009          	movff	fsr1l,??_ISR+4
+   930  00001E  CFE2 F00A          	movff	fsr1h,??_ISR+5
+   931  000022  CFD9 F00B          	movff	fsr2l,??_ISR+6
+   932  000026  CFDA F00C          	movff	fsr2h,??_ISR+7
+   933  00002A  CFF3 F00D          	movff	prodl,??_ISR+8
+   934  00002E  CFF4 F00E          	movff	prodh,??_ISR+9
+   935  000032  CFF6 F00F          	movff	tblptrl,??_ISR+10
+   936  000036  CFF7 F010          	movff	tblptrh,??_ISR+11
+   937  00003A  CFF8 F011          	movff	tblptru,??_ISR+12
+   938  00003E  CFF5 F012          	movff	tablat,??_ISR+13
+   939                           
+   940                           ;main.c: 72: if(PIR3bits.RXB0IF)
+   941  000042  A0A4               	btfss	4004,0,c	;volatile
+   942  000044  D014               	goto	i2l46
+   943                           
+   944                           ;main.c: 73: {
+   945                           ;main.c: 74: LATDbits.LATD2 ^= 1;
+   946  000046  748C               	btg	3980,2,c	;volatile
+   947                           
+   948                           ;main.c: 75: Message newMessage;
+   949                           ;main.c: 76: ecan_receive_rxb0(&newMessage);
+   950  000048  0E13               	movlw	low ISR@newMessage
+   951  00004A  6E01               	movwf	ecan_receive_rxb0@mess,c
+   952  00004C  0E00               	movlw	high ISR@newMessage
+   953  00004E  6E02               	movwf	ecan_receive_rxb0@mess+1,c
+   954  000050  EC57  F000         	call	_ecan_receive_rxb0	;wreg free
+   955                           
+   956                           ;main.c: 77: if(newMessage.data[0] == 0x00)
+   957  000054  5013               	movf	ISR@newMessage,w,c
+   958  000056  A4D8               	btfss	status,2,c
+   959  000058  D002               	goto	i2l1079
+   960                           
+   961                           ;main.c: 78: {
+   962                           ;main.c: 79: FORW = 0;
+   963  00005A  0E00               	movlw	0
+   964  00005C  6E28               	movwf	_FORW,c
+   965  00005E                     i2l1079:
+   966                           
+   967                           ;main.c: 82: }
+   968                           ;main.c: 83: if (newMessage.data[0] == 0x01)
+   969  00005E  0413               	decf	ISR@newMessage,w,c
+   970  000060  A4D8               	btfss	status,2,c
+   971  000062  D002               	goto	i2l1083
+   972                           
+   973                           ;main.c: 84: {
+   974                           ;main.c: 85: FORW = 1;
+   975  000064  0E01               	movlw	1
+   976  000066  6E28               	movwf	_FORW,c
+   977  000068                     i2l1083:
+   978                           
+   979                           ;main.c: 88: }
+   980                           ;main.c: 89: ecan_rxb0_clear();
+   981  000068  EC96  F001         	call	_ecan_rxb0_clear	;wreg free
+   982                           
+   983                           ;main.c: 90: PIR3bits.RXB0IF = 0;
+   984  00006C  90A4               	bcf	4004,0,c	;volatile
+   985  00006E                     i2l46:
+   986  00006E  C012  FFF5         	movff	??_ISR+13,tablat
+   987  000072  C011  FFF8         	movff	??_ISR+12,tblptru
+   988  000076  C010  FFF7         	movff	??_ISR+11,tblptrh
+   989  00007A  C00F  FFF6         	movff	??_ISR+10,tblptrl
+   990  00007E  C00E  FFF4         	movff	??_ISR+9,prodh
+   991  000082  C00D  FFF3         	movff	??_ISR+8,prodl
+   992  000086  C00C  FFDA         	movff	??_ISR+7,fsr2h
+   993  00008A  C00B  FFD9         	movff	??_ISR+6,fsr2l
+   994  00008E  C00A  FFE2         	movff	??_ISR+5,fsr1h
+   995  000092  C009  FFE1         	movff	??_ISR+4,fsr1l
+   996  000096  C008  FFEA         	movff	??_ISR+3,fsr0h
+   997  00009A  C007  FFE9         	movff	??_ISR+2,fsr0l
+   998  00009E  C006  FFFB         	movff	??_ISR+1,pclatu
+   999  0000A2  C005  FFFA         	movff	??_ISR,pclath
+  1000  0000A6  9229               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+  1001  0000A8  0011               	retfie		f
+  1002  0000AA                     __end_of_ISR:
+  1003                           	opt stack 0
+  1004                           pclatu	equ	0xFFB
+  1005                           pclath	equ	0xFFA
+  1006                           tblptru	equ	0xFF8
+  1007                           tblptrh	equ	0xFF7
+  1008                           tblptrl	equ	0xFF6
+  1009                           tablat	equ	0xFF5
+  1010                           prodh	equ	0xFF4
+  1011                           prodl	equ	0xFF3
+  1012                           intcon	equ	0xFF2
+  1013                           fsr0h	equ	0xFEA
+  1014                           fsr0l	equ	0xFE9
+  1015                           wreg	equ	0xFE8
+  1016                           fsr1h	equ	0xFE2
+  1017                           fsr1l	equ	0xFE1
+  1018                           fsr2h	equ	0xFDA
+  1019                           fsr2l	equ	0xFD9
+  1020                           status	equ	0xFD8
+  1021                           
+  1022 ;; *************** function _ecan_rxb0_clear *****************
+  1023 ;; Defined at:
+  1024 ;;		line 199 in file "../../Desktop/CAPSTONE_PIC18.X-master/CAPSTONE_PIC18.X-master/can.c"
+  1025 ;; Parameters:    Size  Location     Type
+  1026 ;;		None
+  1027 ;; Auto vars:     Size  Location     Type
+  1028 ;;		None
+  1029 ;; Return value:  Size  Location     Type
+  1030 ;;                  1    wreg      void 
+  1031 ;; Registers used:
+  1032 ;;		None
+  1033 ;; Tracked objects:
+  1034 ;;		On entry : 0/0
+  1035 ;;		On exit  : 0/0
+  1036 ;;		Unchanged: 0/0
+  1037 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+  1038 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1039 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1040 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1041 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1042 ;;Total ram usage:        0 bytes
+  1043 ;; Hardware stack levels used:    1
+  1044 ;; This function calls:
+  1045 ;;		Nothing
+  1046 ;; This function is called by:
+  1047 ;;		_ISR
+  1048 ;; This function uses a non-reentrant model
+  1049 ;;
+  1050                           
+  1051                           	psect	text9
+  1052  00032C                     __ptext9:
+  1053                           	opt stack 0
+  1054  00032C                     _ecan_rxb0_clear:
+  1055                           	opt stack 28
+  1056                           
+  1057                           ;can.c: 201: RXB0CONbits.RXB0FUL = 0;
+  1058                           
+  1059                           ;incstack = 0
+  1060  00032C  9E60               	bcf	3936,7,c	;volatile
+  1061  00032E  0012               	return		;funcret
+  1062  000330                     __end_of_ecan_rxb0_clear:
+  1063                           	opt stack 0
+  1064                           pclatu	equ	0xFFB
+  1065                           pclath	equ	0xFFA
+  1066                           tblptru	equ	0xFF8
+  1067                           tblptrh	equ	0xFF7
+  1068                           tblptrl	equ	0xFF6
+  1069                           tablat	equ	0xFF5
+  1070                           prodh	equ	0xFF4
+  1071                           prodl	equ	0xFF3
+  1072                           intcon	equ	0xFF2
+  1073                           fsr0h	equ	0xFEA
+  1074                           fsr0l	equ	0xFE9
+  1075                           wreg	equ	0xFE8
+  1076                           fsr1h	equ	0xFE2
+  1077                           fsr1l	equ	0xFE1
+  1078                           fsr2h	equ	0xFDA
+  1079                           fsr2l	equ	0xFD9
+  1080                           status	equ	0xFD8
+  1081                           
+  1082 ;; *************** function _ecan_receive_rxb0 *****************
+  1083 ;; Defined at:
+  1084 ;;		line 133 in file "../../Desktop/CAPSTONE_PIC18.X-master/CAPSTONE_PIC18.X-master/can.c"
+  1085 ;; Parameters:    Size  Location     Type
+  1086 ;;  mess            2    0[COMRAM] PTR struct Message
+  1087 ;;		 -> ISR@newMessage(11), 
+  1088 ;; Auto vars:     Size  Location     Type
+  1089 ;;		None
+  1090 ;; Return value:  Size  Location     Type
+  1091 ;;                  1    wreg      void 
+  1092 ;; Registers used:
+  1093 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1094 ;; Tracked objects:
+  1095 ;;		On entry : 0/0
+  1096 ;;		On exit  : 0/0
+  1097 ;;		Unchanged: 0/0
+  1098 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12
+  1099 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1100 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1101 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1102 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0
+  1103 ;;Total ram usage:        4 bytes
+  1104 ;; Hardware stack levels used:    1
+  1105 ;; This function calls:
+  1106 ;;		Nothing
+  1107 ;; This function is called by:
+  1108 ;;		_ISR
+  1109 ;; This function uses a non-reentrant model
+  1110 ;;
+  1111                           
+  1112                           	psect	text10
+  1113  0000AE                     __ptext10:
+  1114                           	opt stack 0
+  1115  0000AE                     _ecan_receive_rxb0:
+  1116                           	opt stack 28
+  1117  0000AE                     i2l224:
+  1118  0000AE  AE60               	btfss	3936,7,c	;volatile
+  1119  0000B0  D7FE               	goto	i2l224
+  1120                           
+  1121                           ;can.c: 139: mess->data[7] = RXB0D7;
+  1122  0000B2  EE20 F007          	lfsr	2,7
+  1123  0000B6  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1124  0000B8  26D9               	addwf	fsr2l,f,c
+  1125  0000BA  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1126  0000BC  22DA               	addwfc	fsr2h,f,c
+  1127  0000BE  CF6D FFDF          	movff	3949,indf2	;volatile
+  1128                           
+  1129                           ;can.c: 140: mess->data[6] = RXB0D6;
+  1130  0000C2  EE20 F006          	lfsr	2,6
+  1131  0000C6  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1132  0000C8  26D9               	addwf	fsr2l,f,c
+  1133  0000CA  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1134  0000CC  22DA               	addwfc	fsr2h,f,c
+  1135  0000CE  CF6C FFDF          	movff	3948,indf2	;volatile
+  1136                           
+  1137                           ;can.c: 141: mess->data[5] = RXB0D5;
+  1138  0000D2  EE20 F005          	lfsr	2,5
+  1139  0000D6  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1140  0000D8  26D9               	addwf	fsr2l,f,c
+  1141  0000DA  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1142  0000DC  22DA               	addwfc	fsr2h,f,c
+  1143  0000DE  CF6B FFDF          	movff	3947,indf2	;volatile
+  1144                           
+  1145                           ;can.c: 142: mess->data[4] = RXB0D4;
+  1146  0000E2  EE20 F004          	lfsr	2,4
+  1147  0000E6  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1148  0000E8  26D9               	addwf	fsr2l,f,c
+  1149  0000EA  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1150  0000EC  22DA               	addwfc	fsr2h,f,c
+  1151  0000EE  CF6A FFDF          	movff	3946,indf2	;volatile
+  1152                           
+  1153                           ;can.c: 143: mess->data[3] = RXB0D3;
+  1154  0000F2  EE20 F003          	lfsr	2,3
+  1155  0000F6  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1156  0000F8  26D9               	addwf	fsr2l,f,c
+  1157  0000FA  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1158  0000FC  22DA               	addwfc	fsr2h,f,c
+  1159  0000FE  CF69 FFDF          	movff	3945,indf2	;volatile
+  1160                           
+  1161                           ;can.c: 144: mess->data[2] = RXB0D2;
+  1162  000102  EE20 F002          	lfsr	2,2
+  1163  000106  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1164  000108  26D9               	addwf	fsr2l,f,c
+  1165  00010A  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1166  00010C  22DA               	addwfc	fsr2h,f,c
+  1167  00010E  CF68 FFDF          	movff	3944,indf2	;volatile
+  1168                           
+  1169                           ;can.c: 145: mess->data[1] = RXB0D1;
+  1170  000112  EE20 F001          	lfsr	2,1
+  1171  000116  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1172  000118  26D9               	addwf	fsr2l,f,c
+  1173  00011A  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1174  00011C  22DA               	addwfc	fsr2h,f,c
+  1175  00011E  CF67 FFDF          	movff	3943,indf2	;volatile
+  1176                           
+  1177                           ;can.c: 146: mess->data[0] = RXB0D0;
+  1178  000122  C001  FFD9         	movff	ecan_receive_rxb0@mess,fsr2l
+  1179  000126  C002  FFDA         	movff	ecan_receive_rxb0@mess+1,fsr2h
+  1180  00012A  CF66 FFDF          	movff	3942,indf2	;volatile
+  1181                           
+  1182                           ;can.c: 149: mess->sid = RXB0SIDH << 3;
+  1183  00012E  5061               	movf	3937,w,c	;volatile
+  1184  000130  6E03               	movwf	??_ecan_receive_rxb0& (0+255),c
+  1185  000132  6A04               	clrf	(??_ecan_receive_rxb0+1)& (0+255),c
+  1186  000134  90D8               	bcf	status,0,c
+  1187  000136  3603               	rlcf	??_ecan_receive_rxb0,f,c
+  1188  000138  3604               	rlcf	??_ecan_receive_rxb0+1,f,c
+  1189  00013A  90D8               	bcf	status,0,c
+  1190  00013C  3603               	rlcf	??_ecan_receive_rxb0,f,c
+  1191  00013E  3604               	rlcf	??_ecan_receive_rxb0+1,f,c
+  1192  000140  90D8               	bcf	status,0,c
+  1193  000142  3603               	rlcf	??_ecan_receive_rxb0,f,c
+  1194  000144  3604               	rlcf	??_ecan_receive_rxb0+1,f,c
+  1195  000146  EE20 F008          	lfsr	2,8
+  1196  00014A  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1197  00014C  26D9               	addwf	fsr2l,f,c
+  1198  00014E  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1199  000150  22DA               	addwfc	fsr2h,f,c
+  1200  000152  C003  FFDE         	movff	??_ecan_receive_rxb0,postinc2
+  1201  000156  C004  FFDD         	movff	??_ecan_receive_rxb0+1,postdec2
+  1202                           
+  1203                           ;can.c: 150: mess->sid |= RXB0SIDL >> 5;
+  1204  00015A  EE20 F008          	lfsr	2,8
+  1205  00015E  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1206  000160  26D9               	addwf	fsr2l,f,c
+  1207  000162  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1208  000164  22DA               	addwfc	fsr2h,f,c
+  1209  000166  CF62 F003          	movff	3938,??_ecan_receive_rxb0	;volatile
+  1210  00016A  0E05               	movlw	5
+  1211  00016C  6E04               	movwf	(??_ecan_receive_rxb0+1)& (0+255),c
+  1212  00016E                     i2u21_45:
+  1213  00016E  90D8               	bcf	status,0,c
+  1214  000170  3203               	rrcf	??_ecan_receive_rxb0,f,c
+  1215  000172  2E04               	decfsz	(??_ecan_receive_rxb0+1)& (0+255),f,c
+  1216  000174  D7FC               	goto	i2u21_45
+  1217  000176  5003               	movf	??_ecan_receive_rxb0,w,c
+  1218  000178  12DE               	iorwf	postinc2,f,c
+  1219  00017A  0E00               	movlw	0
+  1220  00017C  12DD               	iorwf	postdec2,f,c
+  1221                           
+  1222                           ;can.c: 153: mess->len = 0x0F & RXB0DLC;
+  1223  00017E  EE20 F00A          	lfsr	2,10
+  1224  000182  5001               	movf	ecan_receive_rxb0@mess,w,c
+  1225  000184  26D9               	addwf	fsr2l,f,c
+  1226  000186  5002               	movf	ecan_receive_rxb0@mess+1,w,c
+  1227  000188  22DA               	addwfc	fsr2h,f,c
+  1228  00018A  5065               	movf	3941,w,c	;volatile
+  1229  00018C  0B0F               	andlw	15
+  1230  00018E  6EDF               	movwf	indf2,c
+  1231                           
+  1232                           ;can.c: 156: RXB0CONbits.RXB0FUL = 0;
+  1233  000190  9E60               	bcf	3936,7,c	;volatile
+  1234  000192  0012               	return		;funcret
+  1235  000194                     __end_of_ecan_receive_rxb0:
+  1236                           	opt stack 0
+  1237  0000                     pclatu	equ	0xFFB
+  1238                           pclath	equ	0xFFA
+  1239                           tblptru	equ	0xFF8
+  1240                           tblptrh	equ	0xFF7
+  1241                           tblptrl	equ	0xFF6
+  1242                           tablat	equ	0xFF5
+  1243                           prodh	equ	0xFF4
+  1244                           prodl	equ	0xFF3
+  1245                           intcon	equ	0xFF2
+  1246                           fsr0h	equ	0xFEA
+  1247                           fsr0l	equ	0xFE9
+  1248                           wreg	equ	0xFE8
+  1249                           fsr1h	equ	0xFE2
+  1250                           fsr1l	equ	0xFE1
+  1251                           indf2	equ	0xFDF
+  1252                           postinc2	equ	0xFDE
+  1253                           postdec2	equ	0xFDD
+  1254                           fsr2h	equ	0xFDA
+  1255                           fsr2l	equ	0xFD9
+  1256                           status	equ	0xFD8
+  1257                           pclatu	equ	0xFFB
+  1258                           pclath	equ	0xFFA
+  1259                           tblptru	equ	0xFF8
+  1260                           tblptrh	equ	0xFF7
+  1261                           tblptrl	equ	0xFF6
+  1262                           tablat	equ	0xFF5
+  1263                           prodh	equ	0xFF4
+  1264                           prodl	equ	0xFF3
+  1265                           intcon	equ	0xFF2
+  1266                           fsr0h	equ	0xFEA
+  1267                           fsr0l	equ	0xFE9
+  1268                           wreg	equ	0xFE8
+  1269                           fsr1h	equ	0xFE2
+  1270                           fsr1l	equ	0xFE1
+  1271                           indf2	equ	0xFDF
+  1272                           postinc2	equ	0xFDE
+  1273                           postdec2	equ	0xFDD
+  1274                           fsr2h	equ	0xFDA
+  1275                           fsr2l	equ	0xFD9
+  1276                           status	equ	0xFD8
+  1277                           
+  1278                           	psect	rparam
+  1279  0000                     pclatu	equ	0xFFB
+  1280                           pclath	equ	0xFFA
+  1281                           tblptru	equ	0xFF8
+  1282                           tblptrh	equ	0xFF7
+  1283                           tblptrl	equ	0xFF6
+  1284                           tablat	equ	0xFF5
+  1285                           prodh	equ	0xFF4
+  1286                           prodl	equ	0xFF3
+  1287                           intcon	equ	0xFF2
+  1288                           fsr0h	equ	0xFEA
+  1289                           fsr0l	equ	0xFE9
+  1290                           wreg	equ	0xFE8
+  1291                           fsr1h	equ	0xFE2
+  1292                           fsr1l	equ	0xFE1
+  1293                           indf2	equ	0xFDF
+  1294                           postinc2	equ	0xFDE
+  1295                           postdec2	equ	0xFDD
+  1296                           fsr2h	equ	0xFDA
+  1297                           fsr2l	equ	0xFD9
+  1298                           status	equ	0xFD8
+  1299                           
+  1300                           	psect	temp
+  1301  000029                     btemp:
+  1302                           	opt stack 0
+  1303  000029                     	ds	1
+  1304  0000                     int$flags	set	btemp
+  1305                           pclatu	equ	0xFFB
+  1306                           pclath	equ	0xFFA
+  1307                           tblptru	equ	0xFF8
+  1308                           tblptrh	equ	0xFF7
+  1309                           tblptrl	equ	0xFF6
+  1310                           tablat	equ	0xFF5
+  1311                           prodh	equ	0xFF4
+  1312                           prodl	equ	0xFF3
+  1313                           intcon	equ	0xFF2
+  1314                           fsr0h	equ	0xFEA
+  1315                           fsr0l	equ	0xFE9
+  1316                           wreg	equ	0xFE8
+  1317                           fsr1h	equ	0xFE2
+  1318                           fsr1l	equ	0xFE1
+  1319                           indf2	equ	0xFDF
+  1320                           postinc2	equ	0xFDE
+  1321                           postdec2	equ	0xFDD
+  1322                           fsr2h	equ	0xFDA
+  1323                           fsr2l	equ	0xFD9
+  1324                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     39      40
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+
+Pointer List with Targets:
+
+    ecan_receive_rxb0@mess	PTR struct Message size(2) Largest target is 11
+		 -> ISR@newMessage(COMRAM[11]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_ecan_init
+
+Critical Paths under _ISR in COMRAM
+
+    _ISR->_ecan_receive_rxb0
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _ISR in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _ISR in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _ISR in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _ISR in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _ISR in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _ISR in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _ISR in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _ISR in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _ISR in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _ISR in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _ISR in BANK12
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0     130
+                                             35 COMRAM     4     4      0
+                _ConfigureOscillator
+                          _ecan_init
+                    _initializePorts
+                            _readADC
+                          _selectAN0
+                          _selectAN1
+                        _setAnalogIn
+ ---------------------------------------------------------------------------------
+ (1) _setAnalogIn                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _selectAN1                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _selectAN0                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _readADC                                              4     2      2      24
+                                             29 COMRAM     4     2      2
+ ---------------------------------------------------------------------------------
+ (1) _initializePorts                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _ecan_init                                            6     6      0      60
+                                             29 COMRAM     6     6      0
+ ---------------------------------------------------------------------------------
+ (1) _ConfigureOscillator                                  0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _ISR                                                 25    25      0     387
+                                              4 COMRAM    25    25      0
+                  _ecan_receive_rxb0
+                    _ecan_rxb0_clear
+ ---------------------------------------------------------------------------------
+ (3) _ecan_rxb0_clear                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _ecan_receive_rxb0                                    4     2      2     306
+                                              0 COMRAM     4     2      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _ConfigureOscillator
+   _ecan_init
+   _initializePorts
+   _readADC
+   _selectAN0
+   _selectAN1
+   _setAnalogIn
+
+ _ISR (ROOT)
+   _ecan_receive_rxb0
+   _ecan_rxb0_clear
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             CFF      0       0      31        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E     27      28       1       42.6%
+BITSFR_3             0      0       0      40        0.0%
+SFR_3                0      0       0      40        0.0%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      28      20        0.0%
+DATA                 0      0      28       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.36 build -262312587 
+Symbol Table                                                                                   Mon Mar 14 19:28:06 2016
+
+                          l34 02B4                            l36 02AE                            l97 02DE  
+                 __CFG_BORV$3 000000                  __CFG_CP0$OFF 000000                  __CFG_CP1$OFF 000000  
+                __CFG_CP2$OFF 000000                  __CFG_CP3$OFF 000000                  __CFG_CP4$OFF 000000  
+                __CFG_CP5$OFF 000000                   __CFG_LVP$ON 000000                           l212 01A4  
+                         l213 0244                           l208 019A                  __CFG_CPB$OFF 000000  
+                         u230 029E                  __CFG_CPD$OFF 000000                           _ISR 0008  
+                         wreg 000FE8                          ?_ISR 0001                  __CFG_WDT$OFF 000000  
+                        l1055 026A                          _FORW 0028                          i2l46 006E  
+                        _main 0252                          fsr0h 000FEA                          fsr1h 000FE2  
+                        fsr0l 000FE9                          fsr2h 000FDA                          fsr1l 000FE1  
+                        indf2 000FDF                          fsr2l 000FD9                          btemp 0029  
+                        pclat 000FFA                          prodh 000FF4                          prodl 000FF3  
+                        start 00AA                 __CFG_IESO$OFF 000000                 __CFG_MCLRE$ON 000000  
+                ___param_bank 000010                         ??_ISR 0005       __end_of_ecan_rxb0_clear 0330  
+                       ?_main 0001                         i2l224 00AE           _ConfigureOscillator 02F6  
+               __CFG_PWRT$OFF 000000                 __CFG_WRT0$OFF 000000                 __CFG_WRT1$OFF 000000  
+               __CFG_WRT2$OFF 000000                 __CFG_WRT3$OFF 000000                 __CFG_WRT4$OFF 000000  
+               __CFG_WRT5$OFF 000000             ??_initializePorts 001E                __CFG_EBTR0$OFF 000000  
+              __CFG_FCMEN$OFF 000000                __CFG_EBTR1$OFF 000000                __CFG_EBTR2$OFF 000000  
+              __CFG_EBTR3$OFF 000000                __CFG_EBTR4$OFF 000000                __CFG_EBTR5$OFF 000000  
+               __CFG_WRTB$OFF 000000                 __CFG_WRTC$OFF 000000                 __CFG_WRTD$OFF 000000  
+             __end_of_readADC 02F6                __CFG_EBTRB$OFF 000000                __CFG_BOREN$OFF 000000  
+                       tablat 000FF5                         status 000FD8          ?_ConfigureOscillator 0001  
+             __initialization 0304                  ?_setAnalogIn 0001                  __end_of_main 02BA  
+                      ??_main 0024                 __activetblptr 000000                 ISR@newMessage 0013  
+                      _ADRESH 000FC4                        _ADRESL 000FC3               __CFG_BBSIZ$1024 000000  
+                      i2l1083 0068                        i2l1079 005E                        _RXB0D0 000F66  
+                      _RXB0D1 000F67                        _RXB0D2 000F68                        _RXB0D3 000F69  
+                      _RXB0D4 000F6A                        _RXB1D0 000F56                        _RXB0D5 000F6B  
+                      _RXB1D1 000F57                        _RXB0D6 000F6C                        _RXB1D2 000F58  
+                      _RXB0D7 000F6D                        _RXB1D3 000F59                        _RXB1D4 000F5A  
+                      _RXB1D5 000F5B                        _RXB1D6 000F5C                        _RXB1D7 000F5D  
+                      _TXB0D0 000F46                        _TXB0D1 000F47                        _TXB0D2 000F48  
+                      _TXB0D3 000F49                        _TXB0D4 000F4A                        _TXB0D5 000F4B  
+                      _TXB0D6 000F4C                        _TXB0D7 000F4D         ??_ConfigureOscillator 001E  
+              __CFG_XINST$OFF 000000                __CFG_STVREN$ON 000000              ?_ecan_rxb0_clear 0001  
+               main@sensorOne 0026                     ??_readADC 0020                 ecan_init@sid0 0020  
+                      tblptrh 000FF7                        tblptrl 000FF6                        tblptru 000FF8  
+                  __accesstop 0060       __end_of__initialization 0306               __CFG_PBADEN$OFF 000000  
+               ___rparam_used 000001                __pcstackCOMRAM 0001            __size_of_ecan_init 00BE  
+          __size_of_selectAN0 000A            __size_of_selectAN1 000A               _initializePorts 0324  
+        __size_of_setAnalogIn 0022                       i2u21_45 016E                       _RXB0DLC 000F65  
+                     _RXB1DLC 000F55                       _TXB0DLC 000F45             __end_of_ecan_init 0252  
+                     __Hparam 0000                       __Lparam 0000                       __pcinit 0304  
+                     __ramtop 0D00                       __ptext0 0252                       __ptext1 02BA  
+                     __ptext2 0310                       __ptext3 031A                       __ptext4 02DC  
+                     __ptext5 0324                       __ptext6 0194                       __ptext7 02F6  
+                     __ptext9 032C                       _readADC 02DC                  __size_of_ISR 00A2  
+           __end_of_selectAN0 0324             __end_of_selectAN1 031A          end_of_initialization 0306  
+              main@sensorZero 0024                ecan_init@mask0 0022       __end_of_initializePorts 032C  
+                     postdec2 000FDD                       postinc2 000FDE                     _TRISAbits 000F92  
+                   _TRISBbits 000F93                     _TRISDbits 000F95   __end_of_ConfigureOscillator 0304  
+           readADC@digitalVal 0020                   _ECANCONbits 000F77      __size_of_ecan_rxb0_clear 0004  
+         start_initialization 0304                   __end_of_ISR 00AA                   _CANSTATbits 000F6E  
+            __CFG_OSC$IRCIO67 000000              ?_initializePorts 0001              __CFG_LPT1OSC$OFF 000000  
+                 __pbssCOMRAM 0028                   _BRGCON1bits 000F70                   _BRGCON2bits 000F71  
+                 _BRGCON3bits 000F72                     _ecan_init 0194                 ??_setAnalogIn 001E  
+                   __pintcode 0008                      ?_readADC 001E             ??_ecan_rxb0_clear 0001  
+                    _LATDbits 000F8C                    ?_ecan_init 0001                     _selectAN0 031A  
+                   _selectAN1 0310                      _PIE3bits 000FA3                      _PIR3bits 000FA4  
+                    _RCONbits 000FD0              __CFG_WDTPS$32768 000000                      _RXB0SIDH 000F61  
+                    _RXB0SIDL 000F62                      _RXB1SIDH 000F51                      _RXB1SIDL 000F52  
+                    _RXF0SIDH 000F00                      _RXF0SIDL 000F01                      _TXB0SIDH 000F41  
+                    _TXB0SIDL 000F42                      _RXM0SIDH 000F18                      _RXM0SIDL 000F19  
+         __end_of_setAnalogIn 02DC                    _ADCON0bits 000FC2                    _ADCON1bits 000FC1  
+                  _ADCON2bits 000FC0             _ecan_receive_rxb0 00AE                    _CANCONbits 000F6F  
+          ?_ecan_receive_rxb0 0001                    ?_selectAN0 0001                    ?_selectAN1 0001  
+                    __Hrparam 0000           ??_ecan_receive_rxb0 0003                      __Lrparam 0000  
+                  _CIOCONbits 000F73              __size_of_readADC 001A                  _RXF0SIDLbits 000F01  
+   __end_of_ecan_receive_rxb0 0194                      __ptext10 00AE                 __size_of_main 0068  
+                 ??_ecan_init 001E  __size_of_ConfigureOscillator 000E                  _TXB0SIDLbits 000F42  
+                 _setAnalogIn 02BA                      int$flags 0029                   _RXB0CONbits 000F60  
+                 _RXB1CONbits 000F50                   _OSCTUNEbits 000F9B                    _INTCONbits 000FF2  
+                    intlevel2 0000                   ??_selectAN0 001E                   ??_selectAN1 001E  
+                 _TXB0CONbits 000F40                    _OSCCONbits 000FD3         ecan_receive_rxb0@mess 0001  
+    __size_of_initializePorts 0008                   _RXFCON0bits 000DD4               _ecan_rxb0_clear 032C  
+  __size_of_ecan_receive_rxb0 00E6  

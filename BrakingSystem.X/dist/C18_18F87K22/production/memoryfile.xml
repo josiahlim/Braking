@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/C18_18F87K22/production\BrakingSystem.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>98304</length>
+      <used>284</used>
+      <free>98020</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3328</length>
+      <used>32</used>
+      <free>3296</free>
+    </memory>
+  </executable>
+</project>
